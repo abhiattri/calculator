@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body{
+            display: inline;
+            margin: auto;
+            background-color:grey;
+        }
+        .container {
+        width: 300px;
+        background-color: white;
+        margin: 120px auto;
+        height: 400px;
+    }
+        table{
+            background-color: black;
+            border: 6px blue solid;
+            border-radius: 3px ;
+            width: 300px;
+            height: 400px;
+        }
+        button{
+            border: 2px rgb(15, 15, 14) solid ;
+            color: palevioletred;
+            background-color: rebeccapurple;
+            width: 60px;
+            height: 60px;
+        }
+        #e{
+            height: 50px;
+            text-align: right;
+            color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <table border="1" cellspacing="0">
+        <tr id="e">
+            <td colspan="4" id="inputlb">0</td>
+        </tr>
+        <tr>
+            <td colspan="3"><button onclick="calc(this);">AC</button></td>
+        <td ><button onclick="calc(this);">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(this);">7</button></td>
+            <td><button onclick="calc(this);">8</button></td>
+            <td><button onclick="calc(this);">9</button></td>
+            <td><button onclick="calc(this);">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(this);">4</button></td>
+            <td><button onclick="calc(this);">5</button></td>
+            <td><button onclick="calc(this);">6</button></td>
+            <td><button onclick="calc(this);">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(this);">1</button></td>
+            <td><button onclick="calc(this);">2</button></td>
+            <td><button onclick="calc(this);">3</button></td>
+            <td><button onclick="calc(this);">-</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="calc(this);">0</button></td>
+            <td><button onclick="calc(this);">.</button></td>
+            <td><button onclick="calc(this);">=</button></td>
+        </tr>
+    </table></div>
+       <script>
+           var inputlb=document.getElementById("inputlb");
+           function calc(obj){
+               var a = obj.innerHTML;
+               if(a=='='){
+                   inputlb.innerHTML = eval(inputlb.innerHTML);
+               }else if(a=='AC'){
+                   inputlb.innerHTML = '0';
+               }
+               else{
+                   if(inputlb.innerHTML == '0')
+                   {
+                       inputlb.innerHTML = a;
+                   }else{
+                       inputlb.innerHTML += a;
+                   }
+               }
+           }
+       </script>
+
+</body>
+</html>
